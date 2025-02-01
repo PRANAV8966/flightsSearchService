@@ -2,10 +2,10 @@
 
 ## Porject Setup
 - clone the project on your local 
-- execute `npm install`on the same path as of root directory of the downloaded project
-- create a `.env` file in the root directory and the following environment variables
+- execute `npm install`on the same path as of root directory of the downloaded project.
+- create a `.env` file in the root directory and the following environment variables.
     -`PORT = 3000`
-- Inside the `src/congif` folder create a new file `config.json` and the folllowing code
+- Inside the `src/congif` folder create a new file `config.json` and the folllowing json code.
 
 ```
 {
@@ -17,5 +17,6 @@
     "dialect": "mysql"
   }
 }
-
 ```
+
+- once you have added your DB config, go to the src folder from your terminal and execute `npx sequelize db:create` .

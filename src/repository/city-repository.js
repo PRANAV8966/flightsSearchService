@@ -1,15 +1,16 @@
 const {city} = require('../models/index.js');
 
-
 class cityRepository {
 
     // fucntion to create a new city entry  in DB
     async createCity({name}) {
         try{
-            const City = await city.create({name});
+            const City = await city.create({
+                name
+            });
             return City;
         } catch (error) {
-            console.log("something went wrong!!");
+            console.log("something went wrong in repository layer!!");
             throw {error};
         }
     }
@@ -23,7 +24,7 @@ class cityRepository {
                 }
             });
         }catch (error) {
-            console.log("something went wrong!!");
+            console.log("something went wrong in repository layer!!");
             throw {error};
         }
     }
@@ -38,7 +39,7 @@ class cityRepository {
             })
             return true;
         } catch (error) {
-            console.log("something went wrong!!");
+            console.log("something went wrong in repository layer!!");
             throw {error};
         }
     }
@@ -49,7 +50,7 @@ class cityRepository {
             const City = await city.findByPk(cityId);
             return City;
         } catch (error) {
-            console.log("something went wrong!!");
+            console.log("something went wrong in repository layer!!");
             throw {error};
         }
     }

@@ -1,5 +1,3 @@
-const cityService = require("./city-service");
-
 module.exports = {
-    cityService
+    cityService : require('../services/city-service')
 }

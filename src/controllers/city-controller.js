@@ -6,7 +6,6 @@ const CityController = new cityService();
 const create = async (req, res) => {
     try {
         const city = CityController.createCity(req.body);
-        console.log(city);
         return res.status(201).json({
             data:city,
             success:true,
@@ -83,10 +82,30 @@ const destroy = async (req, res) => {
         })
     }
 }
+    const getAll =  async (req, res) => {
+        try {
+            const cities = await CityController.findAll(req.query);
+        return res.status(200).json({
+            data:cities,
+            success:true,
+            message: "Sucessfully fetched cities",
+            error:{}
+        });
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({
+                data:{},
+                success:false,
+                message:"failed to get cities",
+                error:error
+            })
+        }
+    }
 
 module.exports = {
     create, 
     destroy,
     update,
-    getCity
+    getCity,
+    getAll
 };

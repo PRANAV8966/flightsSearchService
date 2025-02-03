@@ -5,7 +5,7 @@ const CityController = new cityService();
 
 const create = async (req, res) => {
     try {
-        const city = CityController.createCity(req.body);
+        const city = await CityController.createCity(req.body);
         return res.status(201).json({
             data:city,
             success:true,

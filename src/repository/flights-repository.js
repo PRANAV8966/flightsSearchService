@@ -1,11 +1,29 @@
 const { Flight }  = require('../models/index');
-
+const { Op } = require('sequelize');
 
 class FlightRepository {
 
-    #createFilter() {
+    #createFilter(data) {
         // filter function for fetching flights based on custom filters
         let filter = {};
+        let priceFilter = [];
+
+        if(data.arrivalAirportId) {
+            filter.arrivalAirportId = data.arrivalAirportId;
+        }
+        if(data.departureAirportId) {
+            filter.departureAirportId = data.departureAirportId;
+        }
+        if(data.minPrice) {
+            // Object.assign(filter, {price: {[Op.gte]: data.minPrice}});
+            priceFilter.push({price: {[Op.gte]: data.minPrice}});
+        }
+        if(data.maxPrice) {
+            // Object.assign(filter, {price: {[Op.lte]: data.maxPrice}});
+            priceFilter.push({price: {[Op.lte]: data.maxPrice}});
+        }
+        Object.assign(filter, { [Op.and]: priceFilter });
+       return filter;
     }
 
     async createFlight(data) {
@@ -26,9 +44,12 @@ class FlightRepository {
        }
     }
 
-    async getAllFlights() {
+    async getAllFlights(filterData) {
        try {
-            const flights = await Flight.findAll();
+            const filterObject = this.#createFilter(filterData);
+            const flights = await Flight.findAll({
+                where:filterObject
+            });
             return flights;
        } catch (error) {
             throw {error};

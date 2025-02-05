@@ -2,7 +2,6 @@ const {FlightService} = require('../services/index');
 
 const { validateTime } = require('../utils/helper');
 
-
 const flightService = new FlightService();
 
 
@@ -30,4 +29,44 @@ const create = async (req, res) => {
     }
 }
 
-module.exports = {create}
+const getFlight = async (req, res) => {
+    try {
+        const flight = await flightService.getFlight(req.body);
+        return res.status(200).json({
+            data:flight,
+            success:true,
+            message: 'successfully fetched flight',
+            error:{}
+        })
+    } catch (error) {
+        return res.status(500).json({
+            data:{},
+            success:false,
+            message:"failed to fetch flight at controller",
+            error:error
+    })}
+}
+
+const getAllFlights = async (req, res) => {
+    try {
+        const flights = await flightService.getAllFlights(req.query);
+        return res.status(200).json({
+            data:flights,
+            success:true,
+            message:'successfully fetched flights',
+            error:{}
+        })
+    } catch (error) {
+        return res.status(500).json({
+            data:{},
+            success:false,
+            message:"failed to fetch flight at controller",
+            error:error
+    })}
+}
+
+
+module.exports = {create,
+    getFlight,
+    getAllFlights
+}

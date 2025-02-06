@@ -1,5 +1,7 @@
 const express = require('express');
 const { CityController, flightController, airportController } = require('../../controllers/index');
+const { compareData } = require("../../middlewares/index");
+
 
 const router = express.Router();
 
@@ -15,7 +17,7 @@ router.get('/airports', airportController.getAll);
 
 router.post('/city', CityController.create);
 
-router.post('/flights', flightController.create);
+router.post('/flights',compareData.compareData, flightController.create);
 
 router.post('/airports', airportController.create);
 

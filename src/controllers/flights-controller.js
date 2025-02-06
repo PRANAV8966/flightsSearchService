@@ -10,8 +10,16 @@ const create = async (req, res) => {
         if (!validateTime(req.body.arrivalTime, req.body.departureTime)) {
             throw {error:"arrival timecannnot be less than departure time"};
         }
-        const flights = await flightService.createFlights(req.body);
-        console.log("controller flights check!!", flights);
+        const sortedData = {
+            flightNumber: req.body.flightNumber,
+            airplaneID: req.body.airplaneID,
+            departureAirportId: req.body.departureAirportId,
+            arrivalAirportId: req.body.arrivalAirportId,
+            departureTime: req.body.departureTime,
+            arrivalTime: req.body.arrivalTime,
+            price: req.body.price
+        }
+        const flights = await flightService.createFlights(sortedData);
         return res.status(201).json({
             data:flights,
             success:true,

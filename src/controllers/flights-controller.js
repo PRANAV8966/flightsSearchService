@@ -10,7 +10,6 @@ const create = async (req, res) => {
         if (!validateTime(req.body.arrivalTime, req.body.departureTime)) {
             throw {error:"arrival timecannnot be less than departure time"};
         }
-        console.log("we are going inside service layer");
         const flights = await flightService.createFlights(req.body);
         console.log("controller flights check!!", flights);
         return res.status(201).json({

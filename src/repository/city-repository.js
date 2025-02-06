@@ -56,7 +56,7 @@ class cityRepository {
         }
     }
 
-    async findAll(filter) { //filer can be empty also.
+    async findAll(filter) { //filter can be empty also.
         try {
             if (filter.name) {
                 const Cities = await city.findAll({

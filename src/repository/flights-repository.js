@@ -3,7 +3,7 @@ const { Op } = require('sequelize');
 
 class FlightRepository {
 
-    #createFilter(data) {
+        #createFilter(data) {
         // filter function for fetching flights based on custom filters
         let filter = {};
         let priceFilter = [];
@@ -22,8 +22,14 @@ class FlightRepository {
             // Object.assign(filter, {price: {[Op.lte]: data.maxPrice}});
             priceFilter.push({price: {[Op.lte]: data.maxPrice}});
         }
+        // if(data.minPrice && data.maxPrice) {
+        //     Object.assign(filter, {[Op.and]: {
+        //         price: {[Op.gte]: data.minPrice}, 
+        //         price: {[Op.lte]: data.maxPrice}
+        //     }});
+        // }
         Object.assign(filter, { [Op.and]: priceFilter });
-       return filter;
+        return filter;
     }
 
     async createFlight(data) {

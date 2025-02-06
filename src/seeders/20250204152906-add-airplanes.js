@@ -13,45 +13,45 @@ module.exports = {
      * }], {});
     */
 
-    await queryInterface.bulkInsert('airplanes', [
-      {
-        model_number: 'Boeing 777 ',
-        capacity: 200,
-        createdAT: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        model_number: 'Airbus 737 ',
-        capacity: 300,
-        createdAT: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        model_number: 'Boeing 104 ',
-        capacity: 300,
-        createdAT: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        model_number: 'Boeing 786 ',
-        capacity: 300,
-        createdAT: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        model_number: 'Boeing 700 ',
-        capacity: 300,
-        createdAT: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        model_number: 'Airbus cutt777 ',
-        capacity: 300,
-        createdAT: new Date(),
-        updatedAt: new Date()
-      },
+    // await queryInterface.bulkInsert('airplanes', [
+    //   {
+    //     model_number: 'Boeing 777 ',
+    //     capacity: 200,
+    //     createdAT: new Date(),
+    //     updatedAt: new Date()
+    //   },
+    //   {
+    //     model_number: 'Airbus 737 ',
+    //     capacity: 300,
+    //     createdAT: new Date(),
+    //     updatedAt: new Date()
+    //   },
+    //   {
+    //     model_number: 'Boeing 104 ',
+    //     capacity: 300,
+    //     createdAT: new Date(),
+    //     updatedAt: new Date()
+    //   },
+    //   {
+    //     model_number: 'Boeing 786 ',
+    //     capacity: 300,
+    //     createdAT: new Date(),
+    //     updatedAt: new Date()
+    //   },
+    //   {
+    //     model_number: 'Boeing 700 ',
+    //     capacity: 300,
+    //     createdAT: new Date(),
+    //     updatedAt: new Date()
+    //   },
+    //   {
+    //     model_number: 'Airbus cutt777 ',
+    //     capacity: 300,
+    //     createdAT: new Date(),
+    //     updatedAt: new Date()
+    //   },
       
-    ])
+    // ])
 
   },
 

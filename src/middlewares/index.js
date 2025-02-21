@@ -1,3 +1,6 @@
+const { isValidPrice } = require('./validateData');
+
 module.exports = {
-    compareData:require('./validateData')
+    compareData:require('./validateData'),
+    isValidPrice: require('./validateData')
 }

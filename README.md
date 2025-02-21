@@ -1,7 +1,7 @@
 # Welcome to Flight Booking and Searching service
 
-## Porject Setup
-- clone the project on your local 
+## Project Setup
+- clone the project on your local.
 - execute `npm install`on the same path as of root directory of the downloaded project.
 - create a `.env` file in the root directory and the following environment variables.
     -`PORT = 3000`

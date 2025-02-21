@@ -3,5 +3,5 @@ module.exports = {
     FlightRepository: require('../repository/flights-repository'),
     AirplaneRepository: require('../repository/airplane-repository'),
     AirportRepository: require('../repository/airport-repository'),
-    crudRepository: require('../repository/crud-repository')
+    crudRepository: require('../repository/crud-repository'),
 }

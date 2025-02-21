@@ -1,5 +1,6 @@
 const { Flight }  = require('../models/index');
 const { Op } = require('sequelize');
+const { UniqueConstraintError }  =  require('../utils/index');
 
 class FlightRepository {
 
@@ -37,7 +38,10 @@ class FlightRepository {
             const flights = await Flight.create(data);
             return flights;
         } catch (error) {
-            throw {error};
+            if (error.name=='SequelizeUniqueConstraintError'){
+                throw new UniqueConstraintError(error);
+            }
+            throw error;
         }
     }
 
@@ -60,6 +64,19 @@ class FlightRepository {
        } catch (error) {
             throw {error};
        }
+    }
+
+    async updateFlight(flightId, data) {
+        try {
+            await Flight.update(data, {
+                where: {
+                    id: flightId
+                }
+            })
+            return true;
+        } catch (error) {
+            throw {error};
+        }
     }
 }
 

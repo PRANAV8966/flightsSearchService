@@ -1,13 +1,13 @@
 class crudService  {
-    constructor(repository){
+    constructor(repository) {
        this.repository = repository;
+
     }
     async create(data) {
         try {
             const response = await this.repository.create(data);
             return response;
         } catch (error) {
-            console.log('something went wrong in the crud service');
             error:'something went wrong in the service layer of crudService';
             throw {error};
         }
@@ -45,7 +45,7 @@ class crudService  {
 
     async delete(id) {
         try {
-            await this.repository.destroy(id);
+            await this.repository.delete(id);
             return true;
         } catch (error) {
             error:'something went wrong in the service layer of crudService';

@@ -33,7 +33,6 @@ const getCity = async (req, res) => {
             error:{}
         });
     } catch (error) {
-        console.log(error);
         return res.status(500).json({
             data:{},
             success:false,
@@ -85,6 +84,7 @@ const destroy = async (req, res) => {
     const getAll =  async (req, res) => {
         try {
             const cities = await CityController.findAll(req.query);
+            console.log(req.query);
         return res.status(200).json({
             data:cities,
             success:true,

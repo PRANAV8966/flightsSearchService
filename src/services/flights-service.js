@@ -15,8 +15,8 @@ class FlightService {
             });
             return flights;
         } catch (error) {
-            console.log("error at service layer!! for flights");
-            throw {error};
+            console.log("error at service layer!! for flights" );
+            throw error;
         }
     }
 
@@ -39,6 +39,15 @@ class FlightService {
             throw {error};
         }
 
+    }
+    async updateFlight(flightId, data) {
+        try {
+            const response = await this.FlightRepository.updateFlight(flightId, data);
+            return response;
+        } catch (error) {
+            console.log('error while updating flights');
+            throw {error};
+        }
     }
 
 }

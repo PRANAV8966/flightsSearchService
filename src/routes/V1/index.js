@@ -30,6 +30,8 @@ router.patch('/flight/:id', flightController.updateFlight);
 
 router.delete('/city/:id', CityController.destroy);
 
+router.delete('/flight/:id', flightController.deleteFlight);
+
 router.delete('/airplane/:id', airplaneController.Delete);
 
 module.exports = router;

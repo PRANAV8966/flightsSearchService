@@ -91,10 +91,30 @@ const updateFlight = async (req, res) => {
     
 }
 
+const deleteFlight = async (req, res) => {
+    try {
+        await flightService.deleteFlight(req.params.id);
+        return res.status(401).json({
+            response:true,
+            success:true,
+            message:'successfully deleted the flight',
+            error:{}
+        });
+    } catch (error) {
+        return res.status(500).json({
+            response:false,
+            success:false,
+            mesage:'error while deleting the flight at controller',
+            erorr:error
+        });
+    }
+}
+
 
 module.exports = {
     create,
     getFlight,
     getAllFlights,
-    updateFlight
+    updateFlight,
+    deleteFlight
 }

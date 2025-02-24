@@ -78,6 +78,19 @@ class FlightRepository {
             throw {error};
         }
     }
+
+    async delete(flightId) {
+        try {
+            await Flight.destroy({
+                where: {
+                    id:flightId
+                }
+            });
+            return true;
+        } catch (error) {
+            throw {error};
+        }
+    }
 }
 
 module.exports = FlightRepository;

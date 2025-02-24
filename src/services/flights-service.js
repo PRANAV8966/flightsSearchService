@@ -50,6 +50,16 @@ class FlightService {
         }
     }
 
+    async deleteFlight(flightId) {
+        try {
+            await this.FlightRepository.delete(flightId);
+            return true;
+        } catch (error) {
+            console.log('error while deleting flight at service', error);
+            throw error;
+        }
+    }
+
 }
 
 module.exports = FlightService;

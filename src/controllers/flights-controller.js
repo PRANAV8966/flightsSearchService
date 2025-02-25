@@ -74,7 +74,11 @@ const getAllFlights = async (req, res) => {
 
 const updateFlight = async (req, res) => {
     try {
-        const response = await flightService.updateFlight(req.params.id, req.body);
+        const timeStamp = {
+            departureTime: req.body.departureTime,
+            arrivalTime: req.body.arrivalTime
+        }
+        const response = await flightService.updateFlight(req.params.id, timeStamp);
         return res.status(200).json({
             data:response,
             success:true,

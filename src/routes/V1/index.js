@@ -2,8 +2,6 @@ const express = require('express');
 const { CityController, flightController, airportController, airplaneController } = require('../../controllers/index');
 const { compareData, isValidPrice } = require("../../middlewares/index");
 
-
-
 const router = express.Router();
 
 router.get('/city/:id', CityController.getCity);
@@ -27,6 +25,7 @@ router.post('/airplane', airplaneController.create);
 
 router.patch('/city/:id', CityController.update);
 router.patch('/flight/:id', flightController.updateFlight);
+
 
 router.delete('/city/:id', CityController.destroy);
 
